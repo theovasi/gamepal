@@ -1,0 +1,16 @@
+{
+  "libs": [
+    "browser",
+    "react",
+    "ecmascript"
+  ],
+  "plugins": {
+    "node": {},
+    "commonjs": {},
+    "webpack": {},
+    "requirejs": {
+      "baseURL": "./",
+      "paths": {}
+    }
+  }
+}

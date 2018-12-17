@@ -1,0 +1,16 @@
+{
+  "development": {
+    "username": "gamepal-dev",
+    "password": "gamepal-dev",
+    "database": "gamepal-dev",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "gamepal-dev",
+    "password": "gamepal-dev",
+    "database": "gamepal-dev",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  }
+}
