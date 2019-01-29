@@ -4,7 +4,10 @@
     "password": "gamepal-dev",
     "database": "gamepal-dev",
     "host": "127.0.0.1",
-    "dialect": "postgres"
+    "dialect": "postgres",
+    "define": {
+        "schema": "public"
+    }
   },
   "test": {
     "username": "gamepal-dev",

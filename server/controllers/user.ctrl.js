@@ -9,8 +9,9 @@ module.exports = {
     let salt = sjcl.codec.hex.fromBits(crypto.randomBytes(16));
     let passwordHash = sjcl.hash.sha512.hash(password + salt);
     let passwordHex = sjcl.codec.hex.fromBits(passwordHash);
+    let profilePicture = null;
 
-    new User({ username, email, password: passwordHex, salt})
+    new User({ username, email, password: passwordHex, salt, profilePicture})
       .save((err, user) => {
         if(err) {
           res.send(err);
@@ -87,6 +88,10 @@ module.exports = {
 
   verifyLogin: (req, res, next) => {
     let token = req.get('Authorization');
+    if (token === 'undefined') {
+      return res.status(403).json( {} );
+    } 
+
     let decoded = jwt.verify(token, 'v3rys3cr3t', 'base64');
     if (decoded) 
       return res.status(200).json({ decoded });

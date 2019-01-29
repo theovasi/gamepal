@@ -1,6 +1,12 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define('User', {
+    id: {
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4,
+      primaryKey: true,
+      allowNull: false  
+    },
     username: {
       type: DataTypes.STRING(16),
       allowNull: false,
@@ -16,6 +22,9 @@ module.exports = (sequelize, DataTypes) => {
     salt: {
       type: DataTypes.STRING(128),
       allowNull: false,
+    },
+    picture: {
+      type: DataTypes.BLOB
     }
   });
 
