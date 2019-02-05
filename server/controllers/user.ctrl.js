@@ -12,15 +12,11 @@ module.exports = {
     let profilePicture = null;
 
     new User({ username, email, password: passwordHex, salt, profilePicture})
-      .save((err, user) => {
-        if(err) {
-          res.send(err);
-        }
-        else if (!user) {
-          res.status(400);
-        }
-        else {
-          res.json();
+      .save().then((user) => {
+        if (user != null) {
+          res.status(200).json({});
+        } else {
+          res.status(400).json({});
         }
       });
   },

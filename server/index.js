@@ -24,5 +24,5 @@ app.use('/', router);
 
 // Start server
 app.listen(port, () => {
-  console.log(`Server started at port: ${port}`);
+  console.log(`\n\nServer started at port: ${port}\n\n`);
 });

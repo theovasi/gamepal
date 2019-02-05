@@ -112,8 +112,11 @@ class SignUpForm extends Component {
         email: this.state.email,
         password: sjcl.codec.hex.fromBits(sjcl.hash.sha512.hash(this.state.password))
       })
-    }).then(window.location.replace('/'))
-    .catch(err => console.log(err))
+    }).then((res) => {
+      if(res.status) {
+        window.location.replace('/');
+      }})
+    .catch(err => console.log(err));
   }
 
   checkError(errorField) {

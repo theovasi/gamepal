@@ -13,8 +13,8 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   Match.associate = function(models) {
     // associations can be defined here
-    Match.belongsTo(models.Team, {as: 'team1'});
-    Match.belongsTo(models.Team, {as: 'team2'});
+    Match.belongsTo(models.Team, {as: 'teamOne'});
+    Match.belongsTo(models.Team, {as: 'teamTwo'});
     Match.belongsTo(models.Game, {as: 'game'});
   };
   return Match;

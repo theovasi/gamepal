@@ -22,6 +22,8 @@ module.exports = (sequelize, DataTypes) => {
   Rating.associate = function(models) {
     // associations can be defined here
     Rating.belongsTo(models.User, {as: 'user'});
+    Rating.belongsTo(models.User, {as: 'ratedUser'});
+    Rating.belongsTo(models.Match, {as: 'match'});
   };
   return Rating;
 };

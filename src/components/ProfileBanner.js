@@ -5,7 +5,7 @@ import Card from "@material-ui/core/Card";
 import CardMedia from "@material-ui/core/CardMedia";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
-import Header from './Header'
+import Header from './Header';
 import { Cookies, withCookies } from 'react-cookie';
 
 
@@ -60,17 +60,18 @@ class ProfileBanner extends Component {
   render() {
     const { classes } = this.props;
 
-    let username = fetch(serverURL + 'user', {
-      headers: {
-        "Accept": "application/json",
-        "Content-Type": "application/json",
-        "Authorization": this.props.cookies.get('token') 
-      }
-    })
-      .then(res => res.json())
-      .then(data => this.setState({ username: data.username }))
-      .catch(err => console.log(err))
-
+    if (this.state.username == null) {
+      let username = fetch(serverURL + 'user', {
+        headers: {
+          "Accept": "application/json",
+          "Content-Type": "application/json",
+          "Authorization": this.props.cookies.get('token') 
+        }
+      })
+        .then(res => res.json())
+        .then(data => this.setState({ username: data.username }))
+        .catch(err => console.log(err));
+    }
 
     return (
       <Card className={ classes.card }>
@@ -91,6 +92,6 @@ class ProfileBanner extends Component {
 
 ProfileBanner.propTypes = {
   classes: PropTypes.object.isRequired,
-}
+};
 
-export default withStyles(styles)(ProfileBanner);
+export default withStyles(styles)(withCookies(ProfileBanner));

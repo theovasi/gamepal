@@ -55,7 +55,13 @@
     
 }
 
-#login-form Button {
+#buttonContainer Button {
+    margin-top: 20px;
+    background: #060606;
+    margin: 5px;
+}
+
+#buttonContainer a {
     margin-top: 20px;
     background: #060606;
     margin: 5px;

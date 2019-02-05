@@ -1,17 +1,14 @@
 {
   "development": {
-    "username": "gamepal-dev",
-    "password": "gamepal-dev",
+    "username": "admin",
+    "password": "admin",
     "database": "gamepal-dev",
     "host": "127.0.0.1",
-    "dialect": "postgres",
-    "define": {
-        "schema": "public"
-    }
+    "dialect": "postgres"
   },
   "test": {
-    "username": "gamepal-dev",
-    "password": "gamepal-dev",
+    "username": "admin",
+    "password": "admin",
     "database": "gamepal-dev",
     "host": "127.0.0.1",
     "dialect": "postgres"

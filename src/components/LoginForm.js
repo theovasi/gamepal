@@ -7,6 +7,7 @@ import { Cookies, withCookies } from 'react-cookie';
 import sjcl from '../../lib/sjcl.js'
 import jwt from 'jsonwebtoken';
 import Button from "@material-ui/core/Button";
+import { Link } from 'react-router-dom'
 import "../static/css/loginform.css";
 
 
@@ -61,7 +62,8 @@ class Form extends Component {
         fetch(serverURL + 'userExists/' + event.target.value)
           .then(response => response.text())
           .then(responseData => {
-            this.handleUserIdentifierError(responseData != "", userIdentifierType);
+            let userIdentifierExists = (responseData != null) && (responseData != "");
+            this.handleUserIdentifierError(userIdentifierExists, userIdentifierType);
           });
       }.bind(this),
       1000
@@ -145,8 +147,10 @@ class Form extends Component {
           id="login-form"
           action="api/user"
           method="get"
-          onSubmit={this.handleSubmit}
-        >
+          onSubmit={ e => {
+            this.handleSubmit(e);
+          }}
+          >
           <div id="login-banner">
             <h1> GamePal </h1>
             <p> Social Gaming </p>
@@ -176,17 +180,16 @@ class Form extends Component {
               <Button
                 type="submit"
                 variant="contained"
-                color="primary"
-              >
+                color="primary">
                 Log in
               </Button>
               <div style={{display: 'inline-block', margin: '5px'}}>or</div>
               <Button
-                type="submit"
+                component={Link}
+                to="/signup"
                 variant="contained"
-                color="primary"
-              >
-                <a href="/signup" style={{textDecoration: 'none', color: 'inherit'}}>Sign Up</a> 
+                color="primary">
+                Sign Up 
               </Button>
             </div>
           </div>
