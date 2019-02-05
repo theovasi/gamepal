@@ -1,0 +1,22 @@
+{
+    "games": {
+        "Overwatch": {
+            "color": "#f99e1a"
+        },
+        "Fortnite": {
+            "color": "#4c51f7"
+        },
+        "CS:GO": {
+            "color": "#0c0f12"
+        },
+        "League of Legends": {
+            "color": "#5f9db3"
+        },
+        "Battlerite": {
+            "color": "#f77565"
+        },
+        "PUBG": {
+            "color": "#74ce39"
+        }
+    }
+}
