@@ -35,7 +35,7 @@
     "file-loader": "^2.0.0",
     "helmet": "^3.15.0",
     "jsonwebtoken": "^8.3.0",
-    "mongoose": "^5.3.10",
+    "mongoose": "^5.7.5",
     "morgan": "^1.9.1",
     "neovim": "^4.2.1",
     "nodemon": "^1.18.8",
